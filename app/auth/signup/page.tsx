@@ -7,10 +7,11 @@ import { useSignupForm } from "@/app/features/auth/hock/useSignupForm";
 import Link from "next/link";
 
 const Signup = ({}) => {
-  const { form, onSubmit } = useSignupForm();
+  const { form, onSubmit, error } = useSignupForm();
   return (
     <div className="mx-auto max-w-sm m-14">
       <h2 className="text-2xl font-bold text-center">新規登録</h2>
+      <p className="text-red-500 text-center">{error}</p>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <InputFiled
           name="username"
@@ -52,7 +53,12 @@ const Signup = ({}) => {
           </Button>
         </div>
       </form>
-      <Link href="/auth/login">ログインはこちら</Link>
+      <Link
+        href="/auth/login"
+        className="mt-4 text-center text-blue-500 hover:text-blue-600"
+      >
+        ログインはこちら
+      </Link>
     </div>
   );
 };

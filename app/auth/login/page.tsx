@@ -40,7 +40,12 @@ const Login = ({}) => {
           </Button>
         </div>
       </form>
-      <Link href="/auth/signup">新規登録はこちら</Link>
+      <Link
+        href="/auth/signup"
+        className="mt-4 text-center text-blue-500 hover:text-blue-600"
+      >
+        新規登録はこちら
+      </Link>
     </div>
   );
 };

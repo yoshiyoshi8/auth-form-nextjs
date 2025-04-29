@@ -10,8 +10,8 @@ export const signupFormSchema = z.object({
     .min(1, { message: "メールアドレスは必須です" }),
   password: z
     .string()
-    .min(10, { message: "ユーザー名は10文字以上で入力してください" })
-    .max(160, { message: "内容は160文字以内で入力してください" }),
+    .min(6, { message: "パスワードは6文字以上で入力してください" })
+    .max(160, { message: "パスワードは160文字以内で入力してください" }),
 });
 
 export const loginFormSchema = z.object({
