@@ -1,6 +1,13 @@
+"use client";
 import Link from "next/link";
+import { supabase } from "./features/auth/lib/supabaseClient";
+import Button from "./features/auth/components/Button";
 
 export default function Home() {
+  const handleBlogPost = async () => {
+    const { data: session } = await supabase.auth.getSession();
+    console.log(session);
+  };
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <h2 className="font-medium mb-5 text-3xl">ログイン認証テスト</h2>
@@ -17,7 +24,24 @@ export default function Home() {
         >
           ログイン
         </Link>
+        <Button
+          colorType="bg-green-500 mt-4"
+          onClick={async () => {
+            const { data: session } = await supabase.auth.signOut();
+          }}
+          type="button"
+        >
+          ログアウト
+        </Button>
       </div>
+
+      <Button
+        colorType="bg-green-500 mt-4"
+        onClick={handleBlogPost}
+        type="button"
+      >
+        ブログ投稿
+      </Button>
     </main>
   );
 }

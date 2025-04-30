@@ -51,7 +51,7 @@ export const useSignupForm = () => {
         }
         return;
       }
-      router.push("/auth/login");
+      router.push("/auth/email-confirm");
     } catch (error) {
       console.error(error);
     }

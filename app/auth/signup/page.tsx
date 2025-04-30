@@ -53,12 +53,14 @@ const Signup = ({}) => {
           </Button>
         </div>
       </form>
-      <Link
-        href="/auth/login"
-        className="mt-4 text-center text-blue-500 hover:text-blue-600"
-      >
-        ログインはこちら
-      </Link>
+      <p className="mt-4 text-center">
+        <Link
+          href="/auth/login"
+          className="mt-4 text-center text-blue-500 hover:text-blue-600"
+        >
+          ログインはこちら
+        </Link>
+      </p>
     </div>
   );
 };

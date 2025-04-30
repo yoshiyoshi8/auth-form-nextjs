@@ -7,10 +7,11 @@ import { useLoginForm } from "@/app/features/auth/hock/useLoginForm";
 import Link from "next/link";
 
 const Login = ({}) => {
-  const { form, onSubmit } = useLoginForm();
+  const { form, onSubmit, error } = useLoginForm();
   return (
     <div className="mx-auto max-w-sm m-14">
       <h2 className="text-2xl font-bold text-center">ログイン</h2>
+      <p className="text-red-500 text-center">{error}</p>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <InputFiled
           name="email"
@@ -40,12 +41,11 @@ const Login = ({}) => {
           </Button>
         </div>
       </form>
-      <Link
-        href="/auth/signup"
-        className="mt-4 text-center text-blue-500 hover:text-blue-600"
-      >
-        新規登録はこちら
-      </Link>
+      <p className="mt-4 text-center">
+        <Link href="/auth/signup" className="text-blue-500 hover:text-blue-600">
+          新規登録はこちら
+        </Link>
+      </p>
     </div>
   );
 };
